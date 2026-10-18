@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 660" width="1080" height="660" font-family="system-ui, sans-serif">
+  <defs>
+    <linearGradient id="nodeHdr" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#c026d3"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a855f7"/>
+    </marker>
+    <marker id="arrowOnly" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a855f7"/>
+    </marker>
+  </defs>
+
+  <rect width="1080" height="660" fill="#0b0614"/>
+
+  <text x="540" y="44" text-anchor="middle" font-size="26" font-weight="700" fill="#fafafa">DevLog — Page Flow &amp; Access Boundaries</text>
+  <text x="540" y="70" text-anchor="middle" font-size="13" fill="#a1a1aa">Public pages vs. the Sanctum-guarded admin area</text>
+
+  <!-- Global navbar -->
+  <rect x="90" y="86" width="900" height="34" rx="10" fill="#140d22" stroke="#a855f7" stroke-opacity="0.35"/>
+  <text x="540" y="108" text-anchor="middle" font-size="13" fill="#e4e4e7">Global sticky navbar — <tspan fill="#e879f9" font-weight="600">DevLog</tspan> · Home · Admin (shows “Dashboard” when signed in)</text>
+
+  <!-- ============ NODES ============ -->
+  <!-- Home (public) -->
+  <rect x="150" y="150" width="280" height="116" rx="14" fill="#140d22" stroke="#a855f7" stroke-opacity="0.45"/>
+  <rect x="150" y="150" width="280" height="34" rx="14" fill="url(#nodeHdr)"/>
+  <rect x="150" y="170" width="280" height="14" fill="url(#nodeHdr)"/>
+  <text x="166" y="173" font-family="ui-monospace, monospace" font-size="14" font-weight="700" fill="#ffffff">/</text>
+  <text x="166" y="206" font-size="15" font-weight="600" fill="#fafafa">Home — public feed</text>
+  <text x="166" y="228" font-size="12" fill="#a1a1aa">Post cards (title · excerpt · comments)</text>
+  <text x="166" y="246" font-size="11" fill="#71717a" font-family="ui-monospace, monospace">GET /api/posts</text>
+
+  <!-- Post (public) -->
+  <rect x="650" y="150" width="280" height="116" rx="14" fill="#140d22" stroke="#a855f7" stroke-opacity="0.45"/>
+  <rect x="650" y="150" width="280" height="34" rx="14" fill="url(#nodeHdr)"/>
+  <rect x="650" y="170" width="280" height="14" fill="url(#nodeHdr)"/>
+  <text x="666" y="173" font-family="ui-monospace, monospace" font-size="14" font-weight="700" fill="#ffffff">/post/:id</text>
+  <text x="666" y="206" font-size="15" font-weight="600" fill="#fafafa">Post — reading + comments</text>
+  <text x="666" y="228" font-size="12" fill="#a1a1aa">Full article · comment list · form</text>
+  <text x="666" y="246" font-size="11" fill="#71717a" font-family="ui-monospace, monospace">GET /api/posts/{id}</text>
+
+  <!-- Login (public) -->
+  <rect x="150" y="430" width="280" height="116" rx="14" fill="#140d22" stroke="#a855f7" stroke-opacity="0.45"/>
+  <rect x="150" y="430" width="280" height="34" rx="14" fill="url(#nodeHdr)"/>
+  <rect x="150" y="450" width="280" height="14" fill="url(#nodeHdr)"/>
+  <text x="166" y="453" font-family="ui-monospace, monospace" font-size="14" font-weight="700" fill="#ffffff">/login</text>
+  <text x="166" y="486" font-size="15" font-weight="600" fill="#fafafa">Login — admin sign-in</text>
+  <text x="166" y="508" font-size="12" fill="#a1a1aa">Email + password form</text>
+  <text x="166" y="526" font-size="11" fill="#71717a" font-family="ui-monospace, monospace">POST /api/login</text>
+
+  <!-- Admin (guarded) -->
+  <rect x="620" y="400" width="340" height="176" rx="16" fill="none" stroke="#e879f9" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <rect x="650" y="430" width="280" height="116" rx="14" fill="#140d22" stroke="#e879f9" stroke-opacity="0.6"/>
+  <rect x="650" y="430" width="280" height="34" rx="14" fill="url(#nodeHdr)"/>
+  <rect x="650" y="450" width="280" height="14" fill="url(#nodeHdr)"/>
+  <text x="666" y="453" font-family="ui-monospace, monospace" font-size="14" font-weight="700" fill="#ffffff">/admin</text>
+  <text x="666" y="486" font-size="15" font-weight="600" fill="#fafafa">Admin — manage posts</text>
+  <text x="666" y="508" font-size="12" fill="#a1a1aa">Post CRUD (create · edit · delete)</text>
+  <text x="666" y="526" font-size="11" fill="#71717a" font-family="ui-monospace, monospace">POST/PUT/DELETE /api/posts</text>
+
+  <!-- lock icon -->
+  <g transform="translate(636,408)">
+    <path d="M7 6 V4 a7 7 0 0 1 14 0 v2" fill="none" stroke="#e879f9" stroke-width="2"/>
+    <rect x="4" y="6" width="20" height="15" rx="3" fill="#e879f9"/>
+  </g>
+  <text x="668" y="421" font-size="12" font-weight="700" letter-spacing="2" fill="#e879f9">GUARDED — requiresAuth</text>
+
+  <!-- ============ ARROWS ============ -->
+  <!-- Home <-> Post -->
+  <line x1="432" y1="208" x2="648" y2="208" stroke="#a855f7" stroke-width="2.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+  <text x="540" y="196" text-anchor="middle" font-size="12" fill="#e4e4e7" font-weight="600">Read article</text>
+
+  <!-- Login -> Admin (success) -->
+  <line x1="432" y1="468" x2="648" y2="468" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrowOnly)"/>
+  <text x="540" y="456" text-anchor="middle" font-size="12" fill="#e4e4e7" font-weight="600">Successful sign-in (token saved)</text>
+
+  <!-- Admin -> Login (guard redirect) -->
+  <line x1="648" y1="522" x2="434" y2="522" stroke="#e879f9" stroke-width="2.5" marker-end="url(#arrowOnly)"/>
+  <text x="540" y="540" text-anchor="middle" font-size="12" fill="#e879f9">requiresAuth redirect — no token → /login</text>
+
+  <!-- Admin -> Home (sign out), routed via right margin + top gap -->
+  <path d="M930 488 L972 488 L972 128 L432 128 L432 148" fill="none" stroke="#a855f7" stroke-width="2.5" marker-end="url(#arrowOnly)"/>
+  <text x="700" y="120" text-anchor="middle" font-size="12" fill="#a1a1aa">Sign out → back to Home</text>
+
+  <!-- ============ LEGEND ============ -->
+  <g font-size="12">
+    <rect x="90" y="592" width="18" height="14" rx="3" fill="#140d22" stroke="#a855f7" stroke-opacity="0.45"/>
+    <text x="116" y="604" fill="#a1a1aa">Public page (guest access)</text>
+
+    <rect x="290" y="592" width="18" height="14" rx="3" fill="#140d22" stroke="#e879f9" stroke-opacity="0.6" stroke-dasharray="3 3"/>
+    <text x="316" y="604" fill="#a1a1aa">Guarded page (Sanctum bearer token required)</text>
+  </g>
+</svg>

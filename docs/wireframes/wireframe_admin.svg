@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 640" width="900" height="640" font-family="system-ui, sans-serif">
+  <title>DevLog wireframe - Admin dashboard</title>
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a855f7"/>
+      <stop offset="1" stop-color="#e879f9"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.05" r="0.7">
+      <stop offset="0" stop-color="#a855f7" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#a855f7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Canvas -->
+  <rect x="0" y="0" width="900" height="640" fill="#0b0614"/>
+  <rect x="0" y="0" width="900" height="640" fill="url(#glow)"/>
+
+  <!-- NAVBAR -->
+  <rect x="0" y="0" width="900" height="56" fill="#140d22"/>
+  <line x1="0" y1="56" x2="900" y2="56" stroke="#a855f7" stroke-opacity="0.25"/>
+  <text x="24" y="35" font-size="20" font-weight="700" fill="url(#brand)">DevLog</text>
+  <text x="716" y="34" font-size="14" font-weight="600" fill="#c084fc">Home</text>
+  <rect x="716" y="42" width="34" height="2" rx="1" fill="#c084fc"/>
+  <text x="798" y="34" font-size="14" fill="#a1a1aa">Admin</text>
+  <rect x="130" y="48" width="70" height="16" rx="8" fill="#1c1430" stroke="#52525b"/>
+  <text x="165" y="59.5" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1.2" fill="#a1a1aa">NAVBAR</text>
+
+  <!-- DASHBOARD HEADER -->
+  <rect x="40" y="68" width="820" height="96" rx="12" fill="none" stroke="#a855f7" stroke-opacity="0.35" stroke-dasharray="5 4"/>
+  <rect x="702" y="78" width="146" height="16" rx="8" fill="#1c1430" stroke="#52525b"/>
+  <text x="775" y="89.5" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1.2" fill="#a1a1aa">DASHBOARD HEADER</text>
+  <text x="52" y="100" font-size="11" font-weight="700" letter-spacing="2.5" fill="#c084fc">DASHBOARD</text>
+  <text x="52" y="126" font-size="24" font-weight="700" fill="#fafafa">Manage posts</text>
+  <text x="52" y="150" font-size="12" fill="#71717a">Signed in as admin@devlog.test</text>
+  <rect x="740" y="104" width="108" height="34" rx="8" fill="none" stroke="#a855f7" stroke-opacity="0.6"/>
+  <text x="794" y="125" text-anchor="middle" font-size="12" font-weight="600" fill="#e4e4e7">Sign out</text>
+
+  <!-- CREATE POST FORM -->
+  <rect x="40" y="180" width="820" height="248" rx="12" fill="none" stroke="#a855f7" stroke-opacity="0.35" stroke-dasharray="5 4"/>
+  <rect x="52" y="190" width="146" height="16" rx="8" fill="#1c1430" stroke="#52525b"/>
+  <text x="125" y="201.5" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1.2" fill="#a1a1aa">CREATE POST FORM</text>
+  <text x="52" y="232" font-size="16" font-weight="700" fill="#fafafa">Create a post</text>
+  <rect x="52" y="244" width="796" height="34" rx="8" fill="#0b0614" stroke="#3f3f46"/>
+  <text x="66" y="265" font-size="12" fill="#71717a">Post title</text>
+  <rect x="52" y="290" width="796" height="84" rx="8" fill="#0b0614" stroke="#3f3f46"/>
+  <text x="66" y="311" font-size="12" fill="#71717a">Post content</text>
+  <rect x="66" y="322" width="420" height="7" rx="3.5" fill="#27272a"/>
+  <rect x="66" y="336" width="360" height="7" rx="3.5" fill="#27272a"/>
+  <rect x="708" y="386" width="140" height="34" rx="8" fill="url(#brand)"/>
+  <text x="778" y="407" text-anchor="middle" font-size="12" font-weight="700" fill="#fafafa">Publish post</text>
+
+  <!-- POSTS TABLE -->
+  <rect x="40" y="440" width="820" height="182" rx="12" fill="none" stroke="#a855f7" stroke-opacity="0.35" stroke-dasharray="5 4"/>
+  <rect x="52" y="450" width="110" height="16" rx="8" fill="#1c1430" stroke="#52525b"/>
+  <text x="107" y="461.5" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1.2" fill="#a1a1aa">POSTS TABLE</text>
+  <rect x="700" y="450" width="110" height="16" rx="8" fill="#1c1430" stroke="#52525b"/>
+  <text x="755" y="461.5" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1.2" fill="#a1a1aa">ROW ACTIONS</text>
+
+  <rect x="52" y="476" width="796" height="140" rx="8" fill="#140d22" stroke="#a855f7" stroke-opacity="0.25"/>
+  <path d="M52 484 A8 8 0 0 1 60 476 H840 A8 8 0 0 1 848 484 V504 H52 Z" fill="#1c1430"/>
+  <text x="68" y="493" font-size="10" font-weight="700" letter-spacing="1.2" fill="#a1a1aa">TITLE</text>
+  <text x="540" y="493" font-size="10" font-weight="700" letter-spacing="1.2" fill="#a1a1aa">PUBLISHED</text>
+  <text x="700" y="493" font-size="10" font-weight="700" letter-spacing="1.2" fill="#a1a1aa">ACTION</text>
+
+  <!-- Row 1 -->
+  <rect x="68" y="514" width="260" height="8" rx="4" fill="#d4d4d8" fill-opacity="0.7"/>
+  <rect x="540" y="514.5" width="92" height="7" rx="3.5" fill="#52525b"/>
+  <text x="700" y="522" font-size="12" font-weight="600" fill="#c084fc">Edit</text>
+  <text x="748" y="522" font-size="12" font-weight="600" fill="#e879f9">Delete</text>
+  <line x1="68" y1="532" x2="832" y2="532" stroke="#a855f7" stroke-opacity="0.12"/>
+
+  <!-- Row 2 -->
+  <rect x="68" y="542" width="220" height="8" rx="4" fill="#d4d4d8" fill-opacity="0.7"/>
+  <rect x="540" y="542.5" width="92" height="7" rx="3.5" fill="#52525b"/>
+  <text x="700" y="550" font-size="12" font-weight="600" fill="#c084fc">Edit</text>
+  <text x="748" y="550" font-size="12" font-weight="600" fill="#e879f9">Delete</text>
+  <line x1="68" y1="560" x2="832" y2="560" stroke="#a855f7" stroke-opacity="0.12"/>
+
+  <!-- Row 3 -->
+  <rect x="68" y="570" width="300" height="8" rx="4" fill="#d4d4d8" fill-opacity="0.7"/>
+  <rect x="540" y="570.5" width="92" height="7" rx="3.5" fill="#52525b"/>
+  <text x="700" y="578" font-size="12" font-weight="600" fill="#c084fc">Edit</text>
+  <text x="748" y="578" font-size="12" font-weight="600" fill="#e879f9">Delete</text>
+  <line x1="68" y1="588" x2="832" y2="588" stroke="#a855f7" stroke-opacity="0.12"/>
+
+  <!-- Row 4 -->
+  <rect x="68" y="598" width="200" height="8" rx="4" fill="#d4d4d8" fill-opacity="0.7"/>
+  <rect x="540" y="598.5" width="92" height="7" rx="3.5" fill="#52525b"/>
+  <text x="700" y="606" font-size="12" font-weight="600" fill="#c084fc">Edit</text>
+  <text x="748" y="606" font-size="12" font-weight="600" fill="#e879f9">Delete</text>
+</svg>
