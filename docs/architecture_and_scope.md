@@ -74,8 +74,16 @@ CRUD scope focused on content management by one author.
   | Name | `DevLog Admin` |
   | Password | `password` |
 
-  The seeder uses `User::updateOrCreate(...)`, so the account is created (or kept in sync)
-  on `php artisan db:seed`.
+  `DatabaseSeeder` uses `User::updateOrCreate(...)` and then calls `PostSeeder`, so the
+  account is created (or kept in sync) on `php artisan db:seed`.
+
+- [`database/seeders/PostSeeder.php`](../database/seeders/PostSeeder.php) seeds **5 sample
+  posts** authored by the admin, so the feed is populated on first run. It is idempotent
+  (`firstOrCreate`), so re-running it does not duplicate posts:
+
+  ```bash
+  php artisan db:seed --class=PostSeeder
+  ```
 
 - The admin authenticates through `POST /api/login` ([`AuthController@login`](../app/Http/Controllers/AuthController.php)),
   which verifies the credentials and issues a **Sanctum personal access token**

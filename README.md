@@ -126,7 +126,14 @@ cd ..
 php artisan migrate --seed
 ```
 
-This creates the schema and seeds the single administrator account.
+This creates the schema, seeds the single administrator account, and inserts **5 sample
+posts** so the feed is populated on first run.
+
+To re-seed just the sample posts without touching the schema:
+
+```bash
+php artisan db:seed --class=PostSeeder
+```
 
 ### 7. Start the development servers
 
